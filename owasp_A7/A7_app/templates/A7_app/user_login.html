@@ -1,0 +1,28 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% block title %}Authorization{% endblock %}
+{% block content %}
+    <div class="col-4">
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Username: </label>
+            {{ form.username }}
+            <div class="invalid-feedback">
+                {{ form.username.errors }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Password: </label>
+            {{ form.password }}
+            <div class="invalid-feedback">
+                {{ form.password.errors}}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Enter</button>
+    </form>
+    </div>
+{% endblock %}
